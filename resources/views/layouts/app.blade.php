@@ -22,15 +22,17 @@
                         </a>
                     </div>
                     <nav class="space-x-4 text-gray-300 text-sm font-semibold sm:text-base">
-                        <a class="no-underline hover:underline" href="#">Sign in</a>
-                        <a class="no-underline hover:underline" href="#">Create an account</a>
-                        {{-- @guest
+                        {{-- <a class="no-underline hover:underline" href="#">Sign in</a>
+                        <a class="no-underline hover:underline" href="#">Create an account</a> --}}
+                        @guest
                             <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
                             @if (Route::has('register'))
                                 <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                         @else
-                            <span>{{ Auth::user()->name }}</span>
+                            {{-- <span>{{ Auth::user()->name }}</span> --}}
+                            <a class="no-underline hover:underline" href="/home">{{ __('Home') }}</a>
+
     
                             <a href="{{ route('logout') }}"
                                class="no-underline hover:underline"
@@ -39,12 +41,12 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
                                 {{ csrf_field() }}
                             </form>
-                        @endguest --}}
+                        @endguest
                     </nav>
                 </div>
             </header>
 
-            <header class="bg-gray-600 py-6">
+            <header class="bg-gray-600 py-5">
                 <div class="container mx-auto flex justify-between items-center px-6">
                     <div>
                         <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
