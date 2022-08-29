@@ -15,7 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('landingPage');
+});
+Route::get('/admin', function () {
+    return view('backend.admin.index');
+});
+Route::get('/category', function () {
+    return view('backend.category.create');
 });
 
 Route::get('/home', [HomeController::class, 'index']);
